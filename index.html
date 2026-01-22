@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Klimakalkulator Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h1>Klimakalkulator</h1>
+      <p>Beregner forholdet mellom temperatur og relativ fuktighet (Magnus-formel).</p>
+    </div>
+
+    <div class="tabs">
+      <div id="tab_rh" class="tab active" onclick="setMode('rh')">Finn fuktighet</div>
+      <div id="tab_temp" class="tab" onclick="setMode('temp')">Finn temperatur</div>
+    </div>
+
+    <div class="card">
+      <div class="grid">
+        <div class="field">
+          <div class="label-row">
+            <label>Starttemperatur (°C)</label>
+            <input id="t1_num" type="number" value="20" step="0.5">
+          </div>
+          <input id="t1_range" type="range" min="-15" max="50" value="20" step="0.5">
+        </div>
+
+        <div class="field">
+          <div class="label-row">
+            <label>Start fuktighet (%)</label>
+            <input id="rh1_num" type="number" value="50" step="1">
+          </div>
+          <input id="rh1_range" type="range" min="0" max="100" value="50">
+        </div>
+
+        <div id="input_rh_mode" class="field full">
+          <div class="label-row">
+            <label>Ny temperatur (°C)</label>
+            <input id="t2_num" type="number" value="25" step="0.5">
+          </div>
+          <input id="t2_range" type="range" min="-15" max="50" value="25" step="0.5">
+        </div>
+
+        <div id="input_temp_mode" class="field full hidden">
+          <div class="label-row">
+            <label>Målfuktighet (%)</label>
+            <input id="rh2_num" type="number" value="30" step="1">
+          </div>
+          <input id="rh2_range" type="range" min="1" max="100" value="30">
+        </div>
+
+        <div class="result">
+          <span id="res_label">Beregnet resultat</span> 
+          <span id="res_val" class="value res-num">--</span>
+          
+          <div class="mono">
+            <span id="debug_dp">Duggpunkt: --</span>
+            <span id="debug_e">Damptrykk: --</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
